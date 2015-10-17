@@ -1,3 +1,6 @@
 {
-  "directory": "bower_components"
+  "directory": "bower_components",
+  "scripts": {
+    "postinstall": "node node_modules/wiredep/wiredep-cli.js -s client/index.html"
+  }
 }

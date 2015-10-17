@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foundation for Apps</title>
     <link href="./assets/css/app.css" rel="stylesheet" type="text/css">
+
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/foundation-apps/dist/css/foundation-apps.css" />
+    <!-- endbower -->
+
+
     <script src="./assets/js/foundation.js"></script>
     <script src="./assets/js/templates.js"></script>
     <script src="./assets/js/routes.js"></script>
@@ -13,13 +19,36 @@
   <body>
     <div class="grid-frame vertical">
       <div class="grid-content shrink" style="padding: 0;">
-        <ul class="primary condense menu-bar">
-          <li><a><strong>Rapido</strong></a></li>
-          <li class="align-right"><a><strong>User</strong></a></li>
-        </ul>
+        <div class="menu-group primary">
+          <div class="menu-group-left">
+            <ul class="menu-bar primary">
+              <li><a href="#">Rapido</a></li>
+            </ul>
+          </div>
+          <div class="menu-group-right">
+            <ul class="icon-left primary menu-bar">
+              <li><a href="#"><img zf-iconic="" icon="person" size="small" class="iconic-color-primary">Epotignano</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div ui-view class="grid-content">
       </div>
     </div>
+
+    <!-- bower:js -->
+
+    <script src="../bower_components/viewport-units-buggyfill/viewport-units-buggyfill.js"></script>
+    <script src="../bower_components/viewport-units-buggyfill/viewport-units-buggyfill.hacks.js"></script>
+    <script src="../bower_components/tether/tether.js"></script>
+    <script src="../bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/hammerjs/hammer.js"></script>
+    <script src="../bower_components/foundation-apps/dist/js/foundation-apps.js"></script>
+    <script src="../bower_components/rxjs/dist/rx.all.js"></script>
+    <!-- endbower -->
+
   </body>
 </html>

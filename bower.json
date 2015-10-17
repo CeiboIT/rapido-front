@@ -23,6 +23,8 @@
     "tests"
   ],
   "dependencies": {
-    "foundation-apps": "~1.1.0"
+    "foundation-apps": "~1.1.0",
+    "rxjs": "~4.0.6",
+    "font-awesome": "~4.4.0"
   }
 }

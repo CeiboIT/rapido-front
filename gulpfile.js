@@ -11,6 +11,9 @@ var gulp     = require('gulp');
 var rimraf   = require('rimraf');
 var router   = require('front-router');
 var sequence = require('run-sequence');
+var bowerDependecies = require('wiredep').stream;
+
+
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -55,6 +58,17 @@ var paths = {
 gulp.task('clean', function(cb) {
   rimraf('./build', cb);
 });
+
+
+gulp.task('bower', function () {
+  gulp.src('./client/index.html')
+    .pipe(bowerDependecies({
+      optional: 'configuration',
+      goes: 'here'
+    }))
+    .pipe(gulp.dest('./client'));
+});
+
 
 // Copies everything in the client folder except templates, Sass, and JS
 gulp.task('copy', function() {
@@ -156,7 +170,7 @@ gulp.task('server', ['build'], function() {
 
 // Builds your entire app once, without starting a server
 gulp.task('build', function(cb) {
-  sequence('clean', ['copy', 'copy:foundation', 'sass', 'uglify'], 'copy:templates', cb);
+  sequence('clean', ['copy', 'copy:foundation', 'sass', 'uglify', 'bower'], 'copy:templates', cb);
 });
 
 // Default task: builds your app, starts a server, and recompiles assets when they change
